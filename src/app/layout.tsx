@@ -204,12 +204,11 @@ export default function RootLayout({
              <Image
                 src="/logo/vatrex-logo.png"
                 alt="VATREX Logo"
-                width={140}
-                height={40} 
-                className="m-4 md:m-10 transition-all duration-300 hover:scale-110 hover:brightness-110"
-                style={{
-                  filter: 'brightness(1.2) contrast(1.1) drop-shadow(0 2px 4px rgba(255,255,255,0.1))'
-                }}
+                width={120} // Increased size for better visibility of VATREX text
+                height={35} // Base size for logo
+                // Added responsive sizing for the logo image itself if needed (optional, depends on design)
+                // className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 m-4 md:m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-125"
+                className="m-4 md:m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-125" // Adjusted margin
              />
             </Link>
 

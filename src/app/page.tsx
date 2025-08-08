@@ -1,6 +1,6 @@
 // app/page.tsx (or wherever your page file is)
 
-"use client";
+"use client"
 
 import React from "react"; // Removed useState
 import Image from "next/image"; // Keep Image for CircularText section
@@ -14,118 +14,110 @@ import CircularText from "@/blocks/TextAnimations/CircularText/CircularText";
 // ScrollReveal is imported but not used in the provided code snippet, keep if used elsewhere
 // import ScrollReveal from "@/blocks/TextAnimations/ScrollReveal/ScrollReveal";
 import TiltedCard from "@/blocks/Components/TiltedCard/TiltedCard";
-import ExperienceTimeline from "@/components/ExperienceTimeline";
-import SkillTag from "@/components/SkillTag"; // Assuming SkillTag is in components folder
-import ProjectCard from "@/components/ProjectCard"; // Import the new ProjectCard component
+import ExperienceTimeline from '@/components/ExperienceTimeline';
+import SkillTag from '@/components/SkillTag'; // Assuming SkillTag is in components folder
+import ProjectCard from '@/components/ProjectCard'; // Import the new ProjectCard component
 
 // data/projects.ts
 // Define your projects array (add your actual project data here)
 const projects = [
   {
     id: 1,
-    number: "01",
-    title: "Haliya: The AI Fortune Teller",
-    description: "Web Developer",
-    techstack: [
-      // <-- Add paths to tech stack icons for Procrash
-      "/techstack/react.svg",
-      "/techstack/css.svg",
-      "/techstack/rasa.svg",
-      "/techstack/openai.svg",
-      "/techstack/python.svg",
+    number: '01',
+    title: 'Haliya: The AI Fortune Teller',
+    description: 'Web Developer',
+    techstack: [ // <-- Add paths to tech stack icons for Procrash
+        '/techstack/react.svg',
+        '/techstack/css.svg',
+        '/techstack/rasa.svg',
+        '/techstack/openai.svg',
+        '/techstack/python.svg',
     ],
-    imageSrc: "/proj/projectOne.png",
-    link: "https://github.com/Yuyuhiei/Haliya-The-AI-Fortune-Teller",
+    imageSrc: '/proj/projectOne.png', 
+    link: 'https://github.com/Yuyuhiei/Haliya-The-AI-Fortune-Teller',
   },
   {
     id: 2,
-    number: "02",
-    title: "GDSC PLM Website",
-    description: "Web Developer",
+    number: '02',
+    title: 'GDSC PLM Website',
+    description: 'Web Developer',
     techstack: [
-      "/techstack/nextjs.svg",
-      "/techstack/tailwind.svg",
-      "/techstack/shadcn.svg",
+        '/techstack/nextjs.svg',
+        '/techstack/tailwind.svg',
+        '/techstack/shadcn.svg',
     ],
-    imageSrc: "/proj/projectTwo.png",
-    link: "https://www.gdsc-plm.org/",
+    imageSrc: '/proj/projectTwo.png',
+    link: 'https://www.gdsc-plm.org/',
   },
   {
     id: 3,
-    number: "03",
-    title: "GrievDesk",
-    description: "Full Stack Developer",
+    number: '03',
+    title: 'GrievDesk',
+    description: 'Full Stack Developer',
     techstack: [
-      "/techstack/react.svg",
-      "/techstack/css.svg",
-      "/techstack/springboot.svg",
+        '/techstack/react.svg',
+        '/techstack/css.svg',
+        '/techstack/springboot.svg',
     ],
-    imageSrc: "/proj/projectThree.png",
-    link: "https://plmce-grievdesk.web.app/",
+    imageSrc: '/proj/projectThree.png',
+    link: 'https://plmce-grievdesk.web.app/',
   },
   {
     id: 4,
-    number: "04",
-    title: "Conso Programming Language and Compiler",
-    description: "Full Stack Developer",
+    number: '04',
+    title: 'Conso Programming Language and Compiler',
+    description: 'Full Stack Developer',
     techstack: [
-      "/techstack/react.svg",
-      "/techstack/css.svg",
-      "/techstack/python.svg",
-      "/techstack/fastapi.svg",
-      "/techstack/websockets.svg",
+        '/techstack/react.svg',
+        '/techstack/css.svg',
+        '/techstack/python.svg',
+        '/techstack/fastapi.svg',
+        '/techstack/websockets.svg',
     ],
-    imageSrc: "/proj/projectFour.png",
-    link: "https://conso-frontend-v2.onrender.com/",
+    imageSrc: '/proj/projectFour.png',
+    link: 'https://conso-frontend-v2.onrender.com/',
   },
   {
     id: 5,
-    number: "05",
-    title: "AceFrame",
-    description: "Web Developer",
-    techstack: ["/techstack/nextjs.svg", "/techstack/tailwind.svg"],
-    imageSrc: "/proj/projectFive.png",
-    link: "https://aceframe.web.app/",
+    number: '05', 
+    title: 'AceFrame',
+    description: 'Web Developer',
+    techstack: [
+        '/techstack/nextjs.svg',
+        '/techstack/tailwind.svg',
+    ],
+    imageSrc: '/proj/projectFive.png',
+    link: 'https://aceframe.web.app/', 
   },
   {
     id: 6,
-    number: "06",
-    title: "PLM Enrolment System",
-    description: "Database Administrator and Developer",
-    techstack: ["/techstack/java.svg", "/techstack/apachederby.svg"],
-    imageSrc: "/proj/projectSix.png",
-    link: "https://github.com/Yuyuhiei/PLM-Regulars-Enrolment-System",
+    number: '06',
+    title: 'PLM Enrolment System',
+    description: 'Database Administrator and Developer',
+    techstack: [
+        '/techstack/java.svg',
+        '/techstack/apachederby.svg',
+    ],
+    imageSrc: '/proj/projectSix.png',
+    link: 'https://github.com/Yuyuhiei/PLM-Regulars-Enrolment-System',
   },
 ];
+
 
 // Removed items constant
 
 const handleAnimationComplete = () => {
-  console.log("Animation completed!");
+  console.log('Animation completed!');
 };
 
 // Define your skill arrays (you could also move these to a data file if they get long)
 const devSkills = [
-  "Next.js",
-  "Tailwind",
-  "React",
-  "Javascript",
-  "CSS",
-  "Node.js",
-  "Python",
-  "Springboot",
-  "Flutterflow",
-  "Firebase",
-  "Supabase",
-  "MySQL",
+  'Next.js', 'Tailwind', 'React', 'Javascript', 'CSS', 'Node.js',
+  'Python', 'Springboot', 'Flutterflow', 'Firebase', 'Supabase', 'MySQL'
 ];
 
 const contentSkills = [
-  "Figma",
-  "Canva",
-  "Capcut",
-  "Adobe Premiere Pro",
-  "Adobe Illustrator",
+  'Figma', 'Canva', 'Capcut', 'Adobe Premiere Pro', 'Adobe Illustrator'
 ];
 
 export default function Home() {
@@ -134,47 +126,29 @@ export default function Home() {
     // The cursor: 'none' style is now applied globally in layout.tsx
     // Removed outer div as layout.tsx now handles the main structure
     // <div className="flex flex-col min-h-screen bg-[#101112] font-gilroy"> // Removed this line
-    <>
-      {" "}
-      {/* Added React Fragment wrapper */}
+    <> {/* Added React Fragment wrapper */}
       {/* Main content area */}
-      <main className="flex-grow flex flex-col items-center h-full relative pt-20">
-        {" "}
-        {/* Added padding top to account for fixed header */}
-        <div
-          style={{
-            width: "100%",
-            height: "600px",
-            position: "absolute",
-            bottom: "50",
-          }}
-          className="hidden md:block"
-        >
+      <main className="flex-grow flex flex-col items-center h-full relative pt-20"> {/* Added padding top to account for fixed header */}
+        <div style={{ width: '100%', height: '600px', position: 'absolute', bottom: '50'}} className="hidden md:block">
           <Threads
             amplitude={2.5}
             distance={0}
             enableMouseInteraction={false}
           />
         </div>
-        <div
-          style={{
-            width: "100%",
-            height: "600px",
-            position: "absolute",
-            bottom: "50",
-          }}
-          className="md:hidden opacity-10"
-        >
+
+        <div style={{ width: '100%', height: '600px', position: 'absolute', bottom: '50'}} className="md:hidden opacity-10">
           <Threads
             amplitude={2.5}
             distance={0}
             enableMouseInteraction={false}
           />
         </div>
+
         {/* ... other main content elements ... */}
         <div className="w-full flex justify-center items-center my-4 md:mt-15 text-center font-bold relative px-4 md:px-0">
           <BlurText
-            text="VATREX"
+            text="Lauvigne Lumeda"
             delay={150}
             animateBy="letters"
             direction="top"
@@ -182,16 +156,18 @@ export default function Home() {
             className="lg:text-9xl md:text-7xl text-4xl text-center"
           />
         </div>
+
         <div className="font-bold text-center opacity-0 animate-fadeIn mt-1 md:mt-3">
           <TrueFocus
-            sentence="Telegram-боты   БотыㅤсㅤMiniApp   Мобильныеㅤприложения СайтыㅤиㅤЛеднинг"
+            sentence="Developer   Creator   Solopreneur"
             manualMode={true}
             blurAmount={5}
             borderColor="cyan"
             animationDuration={0.3}
             pauseBetweenAnimations={1}
-          />
-        </div>
+            />
+          </div>
+
         {/* style jsx block is fine */}
         <style jsx>{`
           @keyframes fadeIn {
@@ -210,6 +186,7 @@ export default function Home() {
             animation-delay: 0.8s;
           }
         `}</style>
+
         <div className="w-full items-center mt-8 mb-4 relative h-[300px] hidden md:block">
           <CircularText
             text="SCROLL-DOWN*SCROLL-DOWN*"
@@ -225,54 +202,52 @@ export default function Home() {
             className="m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-125 absolute left-44 bottom-9"
           />
         </div>
+
         <div className="flex-grow flex flex-col md:flex-row items-center justify-center w-full md:w-9xl md:mt-35 mt-10 md:space-x-50 space-x-0">
           {/* Tech Stack Section Start */}
-          <div className="flex flex-col w-full max-w-lg px-4 md:px-0 mt-10 mb-20 space-y-8">
-            {/* DEVELOP Card */}
-            {/* custom-corner-border class is kept from previous step */}
-            {/* hover:scale-105 on the card wrapper is kept */}
-            <div className="relative p-6 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 custom-corner-border">
-              <h3 className="text-white font-bold md:text-2xl text-lg tracking-wide mb-3">
-                DEVELOP
-              </h3>
-              <p className="text-gray-400 md:text-md text-sm mt-2 leading-relaxed mb-5">
-                Started creating mobile applications using Flutter, FlutterFlow,
-                and Firebase and eventually switched to Web Development using
-                NextJS, React, and Tailwind
-              </p>
-              <h4 className="text-cyan-300 font-semibold mb-3 text-base">
-                Skillset &amp; tools
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {devSkills.map((skill) => (
-                  <SkillTag key={skill} skillName={skill} />
-                ))}
-              </div>
-            </div>
+             <div className="flex flex-col w-full max-w-lg px-4 md:px-0 mt-10 mb-20 space-y-8">
+             {/* DEVELOP Card */}
+             {/* custom-corner-border class is kept from previous step */}
+             {/* hover:scale-105 on the card wrapper is kept */}
+             <div className="relative p-6 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 custom-corner-border">
+               <h3 className="text-white font-bold md:text-2xl text-lg tracking-wide mb-3">
+                 DEVELOP
+               </h3>
+               <p className="text-gray-400 md:text-md text-sm mt-2 leading-relaxed mb-5">
+                 Started creating mobile applications using Flutter, FlutterFlow, and Firebase and eventually switched to Web Development using NextJS, React, and Tailwind
+               </p>
+               <h4 className="text-cyan-300 font-semibold mb-3 text-base">
+                 Skillset &amp; tools
+               </h4>
+               <div className="flex flex-wrap gap-2">
+                 {devSkills.map(skill => (
+                   <SkillTag key={skill} skillName={skill} />
+                 ))}
+               </div>
+             </div>
 
-            {/* CONTENTS Card */}
-            {/* custom-corner-border class is kept from previous step */}
-            {/* hover:scale-105 on the card wrapper is kept */}
-            <div className="relative p-6 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 custom-corner-border">
-              <h3 className="text-white font-bold md:text-2xl text:lg tracking-wide mb-3">
-                CREATE {/* Updated title based on your code */}
-              </h3>
-              <p className="text-gray-400 md:text-md text-sm mt-2 leading-relaxed mb-5">
-                My content creation journey evolved from a side hustle to
-                serving other creators, achieving an average reach of 15 million
-                within 90 days. {/* Updated description */}
-              </p>
-              <h4 className="text-cyan-300 font-semibold mb-3 text-base">
-                Skillset &amp; Tools
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {contentSkills.map((skill) => (
-                  <SkillTag key={skill} skillName={skill} />
-                ))}
-              </div>
-            </div>
-          </div>
-          {/* Tech Stack Section End */}
+             {/* CONTENTS Card */}
+             {/* custom-corner-border class is kept from previous step */}
+             {/* hover:scale-105 on the card wrapper is kept */}
+             <div className="relative p-6 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 custom-corner-border">
+               <h3 className="text-white font-bold md:text-2xl text:lg tracking-wide mb-3">
+                 CREATE {/* Updated title based on your code */}
+               </h3>
+               <p className="text-gray-400 md:text-md text-sm mt-2 leading-relaxed mb-5">
+                   My content creation journey evolved from a side hustle to serving other creators, achieving an average reach of 15 million within 90 days. {/* Updated description */}
+               </p>
+               <h4 className="text-cyan-300 font-semibold mb-3 text-base">
+                 Skillset &amp; Tools
+               </h4>
+               <div className="flex flex-wrap gap-2">
+                 {contentSkills.map(skill => (
+                   <SkillTag key={skill} skillName={skill} />
+                 ))}
+               </div>
+             </div>
+           </div>
+           {/* Tech Stack Section End */}
+
 
           {/* What I do Section */}
           <div className="flex flex-col">
@@ -289,7 +264,7 @@ export default function Home() {
               <TiltedCard
                 imageSrc="/photos/tiltedcard.svg"
                 altText="Yuyuhiei"
-                captionText="Lauvigne Lumeda"
+                captionText="Lauvigne Lumeda" 
                 containerHeight="600px"
                 containerWidth="500px"
                 imageHeight="600px"
@@ -301,7 +276,7 @@ export default function Home() {
                 displayOverlayContent={true}
                 overlayContent={
                   <p className="bg-transparent px-4 py-2 border-1 border-dashed rounded-lg opacity-50 font-bold m-5 absolute top-5 left-85">
-                    VATREX
+                    Lauvigne
                   </p>
                 }
               />
@@ -328,8 +303,11 @@ export default function Home() {
                 }
               />
             </div>
+
+            
           </div>
         </div>
+
         {/* Experience Section */}
         <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5">
           <BlurText
@@ -342,6 +320,7 @@ export default function Home() {
           />
         </div>
         <ExperienceTimeline />
+
         <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5 font-extrabold">
           <BlurText
             text=" My Projects"
@@ -352,25 +331,22 @@ export default function Home() {
             className="md:text-7xl text-3xl font-extrabold"
           />
         </div>
+
         {/* Projects Section Start */}
         {/* Modified this div to use a grid layout for two columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 w-full max-w-[1400px] mx-auto mt-10">
-          {/* Now mapping over the imported projects array */}
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
+             {/* Now mapping over the imported projects array */}
+             {projects.map((project, index) => (
+               <ProjectCard key={project.id} project={project} index={index} />
+             ))}
+           </div>
         {/* Projects Section End */}
       </main>
+
+
       {/* Footer Section - Consider moving this to layout.tsx as well for consistency */}
-      <footer className="flex w-full items-center justify-center p-4 border-t border-white/[.15] text-white/50 text-sm font-light mt-20">
-        {" "}
-        {/* Added margin top */}
-        <p>
-          &copy; {new Date().getFullYear()} Lauvigne Lumeda. All rights
-          reserved.
-        </p>{" "}
-        {/* Updated name */}
+      <footer className="flex w-full items-center justify-center p-4 border-t border-white/[.15] text-white/50 text-sm font-light mt-20"> {/* Added margin top */}
+        <p>&copy; {new Date().getFullYear()} Lauvigne Lumeda. All rights reserved.</p> {/* Updated name */}
       </footer>
     </> // Closed React Fragment wrapper
     // </div> // Removed this closing tag

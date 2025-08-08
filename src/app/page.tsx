@@ -192,6 +192,16 @@ export default function Home() {
             pauseBetweenAnimations={1}
           />
         </div>
+        
+        {/* Centered Order Button */}
+        <div className="w-full flex justify-center items-center mt-8 mb-8">
+          <a 
+            href="/Contact" 
+            className="px-8 py-4 bg-cyan-500 hover:bg-cyan-600 text-black font-bold text-lg rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            ЗАКАЗАТЬ
+          </a>
+        </div>
         {/* style jsx block is fine */}
         <style jsx>{`
           @keyframes fadeIn {

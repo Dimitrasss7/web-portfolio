@@ -197,21 +197,7 @@ export default function RootLayout({
         {/* Header Section */}
         {/* Adjusted padding for different screen sizes */}
         <header className="sticky top-0 z-50 flex w-full items-center justify-between px-4 py-2 md:px-8 md:py-3 bg-transparent backdrop-blur-[3px]">
-          {/* Logo */}
-          {/* Using Link for Logo if it navigates to home */}
-          {/* Adjusted margin for different screen sizes */}
-            <Link href="/" passHref>
-             <Image
-                src="/logo/vatrex-logo.png"
-                alt="VATREX Logo"
-                width={140}
-                height={40} 
-                className="m-4 md:m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-150 filter invert brightness-200 contrast-125"
-                style={{
-                  filter: 'invert(1) brightness(2) contrast(1.5) drop-shadow(0 0 10px rgba(255,255,255,0.3))'
-                }}
-             />
-            </Link>
+          {/* Logo removed */}
 
 
           {/* Desktop Navigation - hidden on small screens */}

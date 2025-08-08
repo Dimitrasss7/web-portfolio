@@ -197,8 +197,16 @@ export default function RootLayout({
         {/* Header Section */}
         {/* Adjusted padding for different screen sizes */}
         <header className="sticky top-0 z-50 flex w-full items-center justify-between px-4 py-2 md:px-8 md:py-3 bg-transparent backdrop-blur-[3px]">
-          {/* Logo removed */}
-
+          {/* VATREX Logo */}
+          <Link href="/" passHref>
+             <Image
+                src="/logo/vatrex-new-logo.png"
+                alt="VATREX Logo"
+                width={120}
+                height={80} 
+                className="m-4 md:m-6 transition-all duration-300 hover:scale-110 hover:brightness-110"
+             />
+            </Link>
 
           {/* Desktop Navigation - hidden on small screens */}
           {/* Container with fixed dimensions - GooeyNav should handle internal responsiveness */}

@@ -206,9 +206,9 @@ export default function RootLayout({
                 alt="VATREX Logo"
                 width={140}
                 height={40} 
-                className="m-4 md:m-10 transition-all duration-300 hover:scale-110 hover:brightness-110"
+                className="m-4 md:m-10 transition-all duration-300 hover:scale-150 hover:rotate-10 hover:brightness-150 filter invert brightness-200 contrast-125"
                 style={{
-                  filter: 'brightness(1.2) contrast(1.1) drop-shadow(0 2px 4px rgba(255,255,255,0.1))'
+                  filter: 'invert(1) brightness(2) contrast(1.5) drop-shadow(0 0 10px rgba(255,255,255,0.3))'
                 }}
              />
             </Link>

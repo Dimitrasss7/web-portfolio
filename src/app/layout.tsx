@@ -18,7 +18,7 @@ import { gilroy } from "@/fonts/fonts";
 // Define items for GooeyNav (moved from page.tsx)
 const items = [
   { label: "VATREX", href: "/" },
-  { label: "Контакты", href: "/Contact" }, // Adjust as needed
+  { label: "Заказать", href: "/Order" }, // Changed to "Заказать" and route to "/Order"
 ];
 
 // Define social media links - only Telegram
@@ -169,7 +169,7 @@ export default function RootLayout({
             backgroundColor: '#06b6d4', // Cyan color (Tailwind cyan-500 equivalent)
             boxShadow: '0 0 10px 4px rgba(6, 182, 212, 0.7)', // Glowing effect
             }}
-            className="hidden md:block" // Hide on mobile (optional, can be removed if you want it on mobile too)
+            className="hidden md:block" // Hide on mobile (can be removed if you want it on mobile too)
         />
         {/* Custom Cursor Outline */}
         <motion.div
@@ -189,7 +189,7 @@ export default function RootLayout({
             // Optional: opacity for transparency
             opacity: 0.5,
             }}
-            className="hidden md:block" // Hide on mobile (optional, can be removed if you want it on mobile too)
+            className="hidden md:block" // Hide on mobile (can be removed if you want it on mobile too)
         />
         {/* Header Section */}
         {/* Adjusted padding for different screen sizes */}

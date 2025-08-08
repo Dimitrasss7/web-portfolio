@@ -1,62 +1,60 @@
-// src/app/Contact.tsx
+'use client';
 
-'use client'; // This page uses client-side interactivity (form, potential animations)
-
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+import React, { useState } from 'react';
 import BlurText from '@/blocks/TextAnimations/BlurText/BlurText'; 
 import Squares from '@/blocks/Backgrounds/Squares/Squares';
 
-// Define social media links - only Telegram
-const socialLinks = [
-    { platform: "Telegram", href: "https://t.me/montanaX7", iconPath: "/icons/telegram_icon.svg" },
-];
+export default function CreateOrder() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
 
-// Define contact information
-const contactInfo = {
-    email: "lumedalauvigne@gmail.com",
-};
-
-
-export default function Contact() {
-  // Updated form submission handler to open mail client with mailto link
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
 
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    // Get form values
-    const name = formData.get('name')?.toString() || '';
-    const email = formData.get('email')?.toString() || '';
-    const subject = formData.get('subject')?.toString() || '';
-    const message = formData.get('message')?.toString() || '';
+    const telegramNick = formData.get('telegramNick')?.toString() || '';
+    const orderDescription = formData.get('orderDescription')?.toString() || '';
+    const contactInfo = formData.get('contactInfo')?.toString() || '';
 
-    // Construct the email body
-    const emailBody = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    try {
+      // Send order to Telegram bot
+      const response = await fetch('/api/send-order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          telegramNick,
+          orderDescription,
+          contactInfo,
+          timestamp: new Date().toISOString(),
+        }),
+      });
 
-    // Encode subject and body for the mailto link
-    const encodedSubject = encodeURIComponent(subject);
-    const encodedBody = encodeURIComponent(emailBody);
-
-    // Construct the mailto link
-    const mailtoLink = `mailto:${contactInfo.email}?subject=${encodedSubject}&body=${encodedBody}`;
-
-    // Open the default email client
-    window.location.href = mailtoLink;
-
-    // Optional: You might want to reset the form after opening the mail client
-    // form.reset();
+      if (response.ok) {
+        setSubmitStatus('success');
+        form.reset();
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error sending order:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       {/* Section Title */}
       <div className="text-center mb-12 md:mb-16">
-        {/* Using BlurText for consistency, adjust as needed */}
         <BlurText
-          text="Get In Touch"
+          text="Создать заказ"
           delay={50}
           animateBy="letters"
           direction="top"
@@ -64,128 +62,96 @@ export default function Contact() {
         />
       </div>
 
-      {/* Contact Content Container */}
-      <div className="w-full max-w-md md:max-w-3xl lg:max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      {/* Order Form Container */}
+      <div className="w-full max-w-md md:max-w-2xl mx-auto">
+        <div className="bg-[#1a1b1c]/50 backdrop-blur-sm border border-white/[.15] rounded-lg p-6 md:p-8">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">Оформить заказ</h2>
 
-        {/* Contact Information Section */}
-        <div className="flex flex-col space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Contact Information</h2>
-          {contactInfo.email && (
-            <div className="flex items-center text-white/80">
-              {/* You can add an icon here, e.g., a mail icon SVG or Image */}
-              <span className="mr-2 text-cyan-500">📧</span> {/* Example icon */}
-              <a href={`mailto:${contactInfo.email}`} className="hover:underline text-base sm:text-lg">{contactInfo.email}</a>
+          {submitStatus === 'success' && (
+            <div className="mb-6 p-4 bg-green-600/20 border border-green-500/30 rounded-md">
+              <p className="text-green-400 text-center">✅ Заказ успешно отправлен! Мы свяжемся с вами в ближайшее время.</p>
             </div>
           )}
-          {/* Add phone and location here if included in contactInfo */}
-          {/*
-          {contactInfo.phone && (
-            <div className="flex items-center text-white/80">
-              <span className="mr-2 text-cyan-500">📞</span>
-              <a href={`tel:${contactInfo.phone}`} className="hover:underline text-base sm:text-lg">{contactInfo.phone}</a>
+
+          {submitStatus === 'error' && (
+            <div className="mb-6 p-4 bg-red-600/20 border border-red-500/30 rounded-md">
+              <p className="text-red-400 text-center">❌ Ошибка при отправке заказа. Попробуйте еще раз.</p>
             </div>
           )}
-          {contactInfo.location && (
-            <div className="flex items-center text-white/80">
-              <span className="mr-2 text-cyan-500">📍</span>
-              <span className="text-base sm:text-lg">{contactInfo.location}</span>
-            </div>
-          )}
-          */}
 
-          {/* Social Media Links */}
-          <div className="mt-8">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4">Connect with Me</h3>
-            <div className="flex space-x-4">
-              {socialLinks.map((link) => (
-                <Link
-                  key={link.platform}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-transform duration-200 hover:scale-110"
-                >
-                  <Image
-                    src={link.iconPath} // Use the icon path
-                    alt={`${link.platform} icon`}
-                    width={30} // Adjust size as needed
-                    height={30} // Adjust size as needed
-                    className="w-7 h-7 sm:w-8 sm:h-8 object-contain" // Responsive sizing
-                  />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Contact Form Section */}
-        <div>
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Send a Message</h2>
-          <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+          <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
             <div>
-              <label htmlFor="name" className="block text-white/80 text-sm font-medium mb-1">Name</label>
+              <label htmlFor="telegramNick" className="block text-white/80 text-sm font-medium mb-2">
+                Ваш ник в Telegram <span className="text-cyan-400">*</span>
+              </label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                className="w-full px-3 py-2 bg-[#1a1b1c] border border-white/[.15] rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 text-white"
+                id="telegramNick"
+                name="telegramNick"
+                placeholder="@ваш_ник"
+                className="w-full px-4 py-3 bg-[#1a1b1c] border border-white/[.15] rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder-white/40"
                 required
               />
+              <p className="text-xs text-white/60 mt-1">Например: @montanaX7</p>
             </div>
+
             <div>
-              <label htmlFor="email" className="block text-white/80 text-sm font-medium mb-1">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="w-full px-3 py-2 bg-[#1a1b1c] border border-white/[.15] rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 text-white"
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="subject" className="block text-white/80 text-sm font-medium mb-1">Subject</label>
+              <label htmlFor="contactInfo" className="block text-white/80 text-sm font-medium mb-2">
+                Дополнительные контакты
+              </label>
               <input
                 type="text"
-                id="subject"
-                name="subject"
-                className="w-full px-3 py-2 bg-[#1a1b1c] border border-white/[.15] rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 text-white"
+                id="contactInfo"
+                name="contactInfo"
+                placeholder="Email или номер телефона (необязательно)"
+                className="w-full px-4 py-3 bg-[#1a1b1c] border border-white/[.15] rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder-white/40"
               />
             </div>
+
             <div>
-              <label htmlFor="message" className="block text-white/80 text-sm font-medium mb-1">Message</label>
+              <label htmlFor="orderDescription" className="block text-white/80 text-sm font-medium mb-2">
+                Описание заказа <span className="text-cyan-400">*</span>
+              </label>
               <textarea
-                id="message"
-                name="message"
-                rows={4}
-                className="w-full px-3 py-2 bg-[#1a1b1c] border border-white/[.15] rounded-md focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 text-white"
+                id="orderDescription"
+                name="orderDescription"
+                rows={6}
+                placeholder="Подробно опишите что вам нужно создать: тип проекта, функционал, требования, сроки..."
+                className="w-full px-4 py-3 bg-[#1a1b1c] border border-white/[.15] rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white placeholder-white/40 resize-none"
                 required
               ></textarea>
             </div>
+
             <button
               type="submit"
-              className="w-full px-4 py-2 bg-cyan-600 text-white font-bold rounded-md hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-black transition duration-200"
+              disabled={isSubmitting}
+              className={`w-full px-6 py-3 bg-gradient-to-r from-cyan-600 to-blue-600 text-white font-bold rounded-md transition duration-200 ${
+                isSubmitting 
+                  ? 'opacity-50 cursor-not-allowed' 
+                  : 'hover:from-cyan-700 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-black'
+              }`}
             >
-              Send Message
+              {isSubmitting ? 'Отправка...' : 'Отправить заказ'}
             </button>
           </form>
-        </div>
 
+          <div className="mt-6 text-center">
+            <p className="text-white/60 text-sm">
+              После отправки заказа мы свяжемся с вами в Telegram в течение 24 часов
+            </p>
+          </div>
+        </div>
       </div>
 
       <div className="absolute top-0 left-0 w-full h-full z-[-5] opacity-15">
-      <Squares 
-        speed={0.5} 
-        squareSize={50} // Adjust size as needed
-        direction='diagonal' // up, down, left, right, diagonal
-        borderColor='#fff'
-        hoverFillColor='#222'
+        <Squares 
+          speed={0.5} 
+          squareSize={50}
+          direction='diagonal'
+          borderColor='#fff'
+          hoverFillColor='#222'
         />
       </div>
-
-      {/* Optional: Add a footer here if this page doesn't use the global layout footer */}
-       {/* <footer className="mt-16 text-center text-white/50 text-sm">
-         <p>&copy; {new Date().getFullYear()} Lauvigne Lumeda. All rights reserved.</p>
-       </footer> */}
     </main>
   );
 }

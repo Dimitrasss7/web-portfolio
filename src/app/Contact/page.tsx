@@ -8,11 +8,9 @@ import Image from 'next/image';
 import BlurText from '@/blocks/TextAnimations/BlurText/BlurText'; 
 import Squares from '@/blocks/Backgrounds/Squares/Squares';
 
-// Define social media links (can reuse from layout or define here)
+// Define social media links - only Telegram
 const socialLinks = [
-    { platform: "GitHub", href: "https://github.com/Yuyuhiei", iconPath: "/icons/github_icon.svg" }, // <-- Replace YOUR_GITHUB_LINK and icon path
-    { platform: "LinkedIn", href: "https://www.linkedin.com/in/lauvigne-lumeda/", iconPath: "/icons/linkedin_icon.svg" }, // <-- Replace YOUR_LINKEDIN_LINK and icon path
-    { platform: "Gmail", href: "mailto:lumedalauvigne@gmail.com", iconPath: "/icons/gmail_icon.svg" }, // <-- Replace YOUR_EMAIL_ADDRESS and icon path
+    { platform: "Telegram", href: "https://t.me/montanaX7", iconPath: "/icons/telegram_icon.svg" },
 ];
 
 // Define contact information

@@ -233,14 +233,15 @@ export default function Home() {
             {/* hover:scale-105 on the card wrapper is kept */}
             <div className="relative p-6 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 custom-corner-border">
               <h3 className="text-white font-bold md:text-2xl text-lg tracking-wide mb-3">
-                РАЗРАБОТКА
+                DEVELOP
               </h3>
               <p className="text-gray-400 md:text-md text-sm mt-2 leading-relaxed mb-5">
-                Наш код – это не просто строчки, это искусство, а наши сайты –
-                не просто страницы, а орудие продаж.
+                Started creating mobile applications using Flutter, FlutterFlow,
+                and Firebase and eventually switched to Web Development using
+                NextJS, React, and Tailwind
               </p>
               <h4 className="text-cyan-300 font-semibold mb-3 text-base">
-                Наш стек:
+                Skillset &amp; tools
               </h4>
               <div className="flex flex-wrap gap-2">
                 {devSkills.map((skill) => (
@@ -254,13 +255,15 @@ export default function Home() {
             {/* hover:scale-105 on the card wrapper is kept */}
             <div className="relative p-6 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 custom-corner-border">
               <h3 className="text-white font-bold md:text-2xl text:lg tracking-wide mb-3">
-                ДИЗАЙН {/* Updated title based on your code */}
+                CREATE {/* Updated title based on your code */}
               </h3>
               <p className="text-gray-400 md:text-md text-sm mt-2 leading-relaxed mb-5">
-                Ты хочешь не просто сайт, а взрыв эмоций? Дизайн, который цепляет взгляд и не отпускает? Тогда ты в нужном месте! {/* Updated description */}
+                My content creation journey evolved from a side hustle to
+                serving other creators, achieving an average reach of 15 million
+                within 90 days. {/* Updated description */}
               </p>
               <h4 className="text-cyan-300 font-semibold mb-3 text-base">
-                Наш стек:
+                Skillset &amp; Tools
               </h4>
               <div className="flex flex-wrap gap-2">
                 {contentSkills.map((skill) => (

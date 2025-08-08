@@ -199,7 +199,7 @@ export default function RootLayout({
 
           {/* Desktop Navigation - hidden on small screens */}
           {/* Container with fixed dimensions - GooeyNav should handle internal responsiveness */}
-          <div className="hidden md:block font-medium" style={{ height: '70px', width: '400px', position: 'relative' }}>
+          <div className="hidden md:block font-medium mx-auto" style={{ height: '70px', width: '500px', position: 'relative' }}>
             <GooeyNav
               items={items} // The items array contains { label, href }
               particleCount={15}

@@ -312,28 +312,32 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
 				>
 					<ul
 						ref={navRef}
-						className="flex gap-8 list-none p-0 px-4 m-0 relative z-[3]"
+						className="flex items-center gap-8 list-none p-0 px-4 m-0 relative z-[3] justify-center"
 						style={{
 							color: "white",
 							textShadow: "0 1px 1px hsl(205deg 30% 10% / 0.2)",
 						}}
 					>
 						{items.map((item, index) => (
-							<li
-								key={index}
-								className={`py-[0.6em] px-[1em] rounded-full relative transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
-									activeIndex === index ? "active" : ""
-								}`}
-								onClick={(e) => handleClick(e, index)}
-							>
-								<Link
-									href={item.href}
-									onKeyDown={(e) => handleKeyDown(e, index)}
-									className="outline-none"
+							<React.Fragment key={index}>
+								<li
+									className={`py-[0.6em] px-[1em] rounded-full relative transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
+										activeIndex === index ? "active" : ""
+									}`}
+									onClick={(e) => handleClick(e, index)}
 								>
-									{item.label}
-								</Link>
-							</li>
+									<Link
+										href={item.href}
+										onKeyDown={(e) => handleKeyDown(e, index)}
+										className="outline-none"
+									>
+										{item.label}
+									</Link>
+								</li>
+								{index < items.length - 1 && (
+									<div className="text-white/50 select-none pointer-events-none">|</div>
+								)}
+							</React.Fragment>
 						))}
 					</ul>
 				</nav>

@@ -200,10 +200,11 @@ export default function RootLayout({
           {/* VATREX Logo */}
           <Link href="/" passHref>
              <Image
-                src="/logo/vatrex-new-logo.png"
+                src="/logo/vatrex-logo.png"
                 alt="VATREX Logo"
                 width={120}
-                height={80} 
+                height={80}
+                priority
                 className="m-4 md:m-6 transition-all duration-300 hover:scale-110 hover:brightness-110"
              />
             </Link>

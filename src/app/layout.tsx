@@ -18,7 +18,7 @@ import { gilroy } from "@/fonts/fonts";
 // Define items for GooeyNav (moved from page.tsx)
 const items = [
   { label: "VATREX", href: "/" },
-  { label: "Заказать", href: "/Order" }, // Changed to "Заказать" and route to "/Order"
+  { label: "Заказать", href: "/Contact" }, // Changed to "Заказать" and route to "/Contact"
 ];
 
 // Define social media links - only Telegram
@@ -153,7 +153,7 @@ export default function RootLayout({
         style={{ cursor: 'none' }} // Apply cursor: none globally to the body
         >
         {/* Custom Cursor Dot */}
-        <motion.div 
+        <motion.div
             style={{
             x: dotX, // Bind x position to the dot's sprung motion value
             y: dotY, // Bind y position to the dot's sprung motion value

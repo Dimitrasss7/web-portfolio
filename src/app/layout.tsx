@@ -18,8 +18,7 @@ import { gilroy } from "@/fonts/fonts";
 // Define items for GooeyNav (moved from page.tsx)
 const items = [
   { label: "VATREX", href: "/" },
-  { label: "Awards", href: "/Hackathons" },
-  { label: "Contact", href: "/Contact" }, // Adjust as needed
+  { label: "Контакты", href: "/Contact" }, // Adjust as needed
 ];
 
 // Define social media links and placeholder icon paths

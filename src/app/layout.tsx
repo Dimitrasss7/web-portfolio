@@ -193,38 +193,39 @@ export default function RootLayout({
         />
         {/* Header Section */}
         {/* Adjusted padding for different screen sizes */}
-        <header className="sticky top-0 z-50 flex w-full items-center justify-between px-4 py-2 md:px-8 md:py-3 bg-transparent backdrop-blur-[3px]">
-          {/* Logo removed */}
-
-
-          {/* Desktop Navigation - hidden on small screens */}
-          {/* Container with fixed dimensions - GooeyNav should handle internal responsiveness */}
-          <div className="hidden md:block font-medium mx-auto" style={{ height: '70px', width: '500px', position: 'relative' }}>
-            <GooeyNav
-              items={items} // The items array contains { label, href }
-              particleCount={15}
-              particleDistances={[90, 10]}
-              particleR={100}
-              initialActiveIndex={activeIndex !== -1 ? activeIndex : 0} // Set dynamically, default to 0 if not found
-              animationTime={600}
-              timeVariance={300}
-              colors={[1, 2, 3, 1, 2, 3, 1, 4]}
-              // IMPORTANT: The GooeyNav component itself needs to use <Link> internally for its items
-            />
+        <header className="sticky top-0 z-50 w-full bg-transparent backdrop-blur-[3px]">
+          {/* Desktop Navigation - centered perfectly */}
+          <div className="hidden md:flex justify-center items-center w-full py-2 md:py-3">
+            <div className="font-medium" style={{ height: '70px', width: '500px', position: 'relative' }}>
+              <GooeyNav
+                items={items} // The items array contains { label, href }
+                particleCount={15}
+                particleDistances={[90, 10]}
+                particleR={100}
+                initialActiveIndex={activeIndex !== -1 ? activeIndex : 0} // Set dynamically, default to 0 if not found
+                animationTime={600}
+                timeVariance={300}
+                colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+                // IMPORTANT: The GooeyNav component itself needs to use <Link> internally for its items
+              />
+            </div>
           </div>
 
-          {/* Hamburger button - visible only on small screens */}
-          <button
-            className="md:hidden text-white p-2 focus:outline-none"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle mobile menu" // Added accessibility label
-          >
+          {/* Mobile header with hamburger button */}
+          <div className="md:hidden flex justify-end items-center px-4 py-2">
+            {/* Hamburger button - visible only on small screens */}
+            <button
+              className="text-white p-2 focus:outline-none"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle mobile menu" // Added accessibility label
+            >
             {/* Hamburger icon lines */}
             {/* Added transition for animation if you want to animate the icon */}
             <div className="w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 ease-in-out"></div>
             <div className="w-6 h-0.5 bg-white mb-1.5 transition-all duration-300 ease-in-out"></div>
             <div className="w-6 h-0.5 bg-white transition-all duration-300 ease-in-out"></div>
-          </button>
+            </button>
+          </div>
         </header>
 
         {/* Mobile menu - only visible when mobileMenuOpen is true */}

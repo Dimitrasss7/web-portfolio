@@ -332,7 +332,7 @@ export default function Home() {
         {/* Experience Section */}
         <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5">
           <BlurText
-            text=" My Experience"
+            text=" Наш опыт"
             delay={150}
             animateBy="words"
             direction="top"
@@ -343,7 +343,7 @@ export default function Home() {
         <ExperienceTimeline />
         <div className="flex w-full items-center justify-center p-4 md:mt-25 mt-5 font-extrabold">
           <BlurText
-            text=" My Projects"
+            text=" Наше портфолио"
             delay={150}
             animateBy="letters"
             direction="top"
@@ -366,7 +366,7 @@ export default function Home() {
         {" "}
         {/* Added margin top */}
         <p>
-          &copy; {new Date().getFullYear()} Lauvigne Lumeda. All rights
+          &copy; {new Date().getFullYear()} VATREX. All rights
           reserved.
         </p>{" "}
         {/* Updated name */}

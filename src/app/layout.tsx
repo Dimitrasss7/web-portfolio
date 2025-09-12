@@ -23,7 +23,7 @@ const items = [
 
 // Define social media links - only Telegram
 const socialLinks = [
-  { platform: "Telegram", href: "https://t.me/montanaX7", iconPath: "/icons/telegram_icon.svg" },
+  { platform: "Telegram", href: "https://t.me/VATREXXXX", iconPath: "/icons/telegram_icon.svg" },
 ];
 
 

@@ -184,7 +184,7 @@ export default function Home() {
         </div>
         <div className="font-bold text-center opacity-0 animate-fadeIn mt-1 md:mt-3">
           <TrueFocus
-            sentence="Telegram-боты   БотыㅤсㅤMiniApp   Мобильныеㅤприложения СайтыㅤиㅤЛеднинг"
+            sentence="Telegram-боты   Боты-с-MiniApp   Мобильные-приложения Сайты-и-Лендинги"
             manualMode={true}
             blurAmount={5}
             borderColor="cyan"
@@ -366,8 +366,7 @@ export default function Home() {
         {" "}
         {/* Added margin top */}
         <p>
-          &copy; {new Date().getFullYear()} VATREX. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} VATREX. All rights reserved.
         </p>{" "}
         {/* Updated name */}
       </footer>

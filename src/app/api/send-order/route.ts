@@ -1,7 +1,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 
-const TELEGRAM_BOT_TOKEN = '8439262546:AAE0GzLPwPtiDGErdd8NbbCWzQXiAoYnfCc';
+const TELEGRAM_BOT_TOKEN = '8377802591:AAH1FViWu5fTUvb0M7bm8wXBlyMuEsltbPo';
 const TELEGRAM_CHAT_ID = '8201070854'; // Ваш Telegram chat ID
 
 export async function POST(request: NextRequest) {

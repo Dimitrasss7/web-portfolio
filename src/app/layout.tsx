@@ -18,7 +18,7 @@ import { gilroy } from "@/fonts/fonts";
 // Define items for GooeyNav (moved from page.tsx)
 const items = [
   { label: "VATREX", href: "/" },
-  { label: "Заказать", href: "/Contact" }, // Changed to "Заказать" and route to "/Contact"
+  { label: "Заказать", href: "https://t.me/VATREXXXX" }, // Updated to redirect to Telegram
 ];
 
 // Define social media links - only Telegram
